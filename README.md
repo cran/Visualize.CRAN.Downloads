@@ -1,5 +1,12 @@
 # Visualize.CRAN.Downloads
 
+<!--
+<!-- badges: start -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+[![CRAN checks](https://cranchecks.info/badges/worst/Visualize.CRAN.Downloads)](https://cranchecks.info/pkgs/Visualize.CRAN.Downloads)
+[![Downloads](https://cranlogs.r-pkg.org/badges/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+<!-- badges: end -->
+-->
 
 ## Introduction
 This package allows you to visualize the number of downloads for an specific
@@ -148,12 +155,13 @@ The left plot will highlight the last month of data, and the plot on the right u
 <!--<object data="https://github.com/mponce0/Visualize.CRAN.Downloads/blob/master/man/figures/Interactive_DWNLDS_ehelp.html" width="100%" height="525">
    <embed src="https://github.com/mponce0/Visualize.CRAN.Downloads/blob/master/man/figures/Interactive_DWNLDS_ehelp.html" width="100%" height="525">
 -->
-<!--<object data="man/figures/Interactive_DWNLDS_ehelp.html" width="100%" height="525">
+<!--
+<object data="man/figures/Interactive_DWNLDS_ehelp.html" width="100%" height="525">
    <embed src="man/figures/Interactive_DWNLDS_ehelp.html" width="100%" height="525">
--->       <p>A live example of this can be seen at
+       <p>A live example of this can be seen at
             <a href="https://mponce0.github.io/Visualize.CRAN.Downloads/">https://mponce0.github.io/Visualize.CRAN.Downloads/</a>
        </p>
-<!--   </embed>
+   </embed>
 </object>
 -->
 
@@ -221,20 +229,23 @@ library(Visualize.CRAN.Downloads)
 ### Examples of the main function, using `processPckg()`
 ```
 # generates static and interactive plots for the "ehelp" package with default arguments
+# default value for the static plot is PDF
 processPckg("ehelp")
 
-# specifying starting date in 2001-01-01
-processPckg(c("ehelp","plotly","ggplot"), "2001-01-01")
+# specifying starting date in 2001-01-01, and send to the screen
+processPckg(c("ehelp","plotly","ggplot"), "2001-01-01", device="SCREEN")
 
 # request no static plot, ie. only interactive plot will be generated
 processPckg(c("ehelp","plotly","ggplot"), "2001-01-01", opts="nostatic")
 
 # process 3 packages, with only static plot, ie. no interactive nor comparison plot
+# static plots will be genereated as PDF
 processPckg(c("ehelp","plotly","ggplot"), "2001-01-01", opts=c("nointeractive","nocombined"))
 
 # process 4 packages, with a given starting date and static and comparison plots
+# output set to screen
 pckg.data <- processPckg(c('ggplot2','plotly','gplots','lattice'), '2017-01-01',
-opts=c('nointeractive','compare','noConfBand'))
+opts=c('nointeractive','compare','noConfBand'), device='SCREEN')
 
 # no interactive plot, only static plots for each package and comparison plot among all of them to be displayed in 'screen' only
 pckg.data <- processPckg(c('plotly','gplots','lattice','scatterplot3d','rgl'), '2017-01-01',
@@ -248,9 +259,10 @@ packageData <- retrievePckgData("ggplot")
 # select 1st element of the list
 totalDownloads <- packageData[[1]]
 
-# call the plotting fn
+# call the plotting fn, with default value of device --> PDF
 staticPlots(totalDownloads)
-staticPlots(totalDownloads,combinePlts=TRUE)
+# set output to the screen
+staticPlots(totalDownloads,combinePlts=TRUE, device='SCREEN')
 ```
 
 ### Examples of Interactive Plots, using `interactivePlots()`
@@ -344,3 +356,43 @@ The cron-job script would in this case look like:
 
 0 5 * * * /home/username/scripts/updateREPORTS.sh
 ```
+
+
+## How to Cite this Package
+```R
+> citation("Visualize.CRAN.Downloads")
+
+To cite package ‘Visualize.CRAN.Downloads’ in publications use:
+
+  Marcelo Ponce (2020). Visualize.CRAN.Downloads: Visualize Downloads
+  from 'CRAN' Packages. R package version 1.0.
+  https://CRAN.R-project.org/package=Visualize.CRAN.Downloads
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {Visualize.CRAN.Downloads: Visualize Downloads from 'CRAN' Packages},
+    author = {Marcelo Ponce},
+    year = {2020},
+    note = {R package version 1.0},
+    url = {https://CRAN.R-project.org/package=Visualize.CRAN.Downloads},
+  }
+```
+
+
+<!--
+### Stats
+<!-- badges: start -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+[![CRAN checks](https://cranchecks.info/badges/worst/Visualize.CRAN.Downloads)](https://cranchecks.info/pkgs/Visualize.CRAN.Downloads)
+[![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/Visualize.CRAN.Downloads)](https://cran.r-project.org/package=Visualize.CRAN.Downloads)
+<!-- badges: end -->
+<p align="center">
+	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_Visualize.CRAN.Downloads.png" width="65%" alt="Live download stats" />
+	<figcaption>"Live" download stats, figure generated using the <a href="https://cran.r-project.org/package=Visualize.CRAN.Downloads" target="_blank">"Visualize.CRAN.Downloads"</a> package</figcaption>
+</p>
+
+<object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_Visualize.CRAN.Downloads.pdf" type="application/pdf" width="700px" height="700px">
+-->

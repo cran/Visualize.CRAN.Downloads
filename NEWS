@@ -1,0 +1,2 @@
+April 2021: ver 1.0.1
+	- added rmarkdown to list of "suggests" due to knitr changes (Apr. 2021)
