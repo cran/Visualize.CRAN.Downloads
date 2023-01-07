@@ -487,7 +487,7 @@ interactivePlots <- function(downloads.data, mytitle=paste(downloads.data$packag
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' packageXdownloads <- retrievePckgData("ggplot")[[1]]
 #' interactivePlots(packageXdownloads)
 #' }

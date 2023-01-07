@@ -33,7 +33,7 @@ interactivePlots(
 function that generates interactive plots of the package downloads logs from CRAN
 }
 \examples{
-\donttest{
+\dontrun{
 packageXdownloads <- retrievePckgData("ggplot")[[1]]
 interactivePlots(packageXdownloads)
 }
